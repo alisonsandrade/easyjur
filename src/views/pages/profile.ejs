@@ -1,0 +1,41 @@
+<%- include('../includes/head') %>
+
+<%- include('../includes/nav') %>
+      
+    <main class="container">
+
+        <h3>Perfil</h3>
+        <hr>
+
+        <p>Olá, <strong><%= profile.displayName %></strong>, seja bem vindo à sua página de perfil pessoal.</p>
+
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Matrícula</div>
+                <%= profile.businessPhones %>
+            </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Nome</div>
+                <%= profile.displayName %>
+            </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">E-mail</div>
+                <%= profile.mail %>
+            </div>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                <div class="fw-bold">Cargo/Função</div>
+                <%= profile.officeLocation %>
+                </div>
+            </li>
+            </li>
+        </ol>
+
+    </main>
+
+<%- include('../includes/footer') %>

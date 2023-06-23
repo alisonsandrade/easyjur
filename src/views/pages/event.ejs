@@ -1,0 +1,62 @@
+<%- include('../includes/head') %>
+
+<%- include('../includes/nav') %>
+
+<main class="container">
+
+    <h3>Registrar novo compromisso</h3>
+    <hr>
+
+    <div class="mb-3">
+        <label for="calendar" class="form-label">Calendário</label>
+        <select class="form-select" aria-label="Selecione um calendário">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+
+    <div class="row g-2">
+        <div class="col-md">
+          <div class="form-floating">
+            <input type="datetime-local" class="form-control" id="start" required>
+            <label for="start">Data Inicial</label>
+          </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating">
+              <input type="datetime-local" class="form-control" id="end" required>
+              <label for="end">Data Final</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="subject" required>
+              <label for="subject">Título</label>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="body">
+              <label for="body">Descrição</label>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="form-floating">
+                <button type="button" class="btn btn-outline-primary">+</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-grid gap-2 d-md-block pt-4">
+      <a href="/calendars" class="btn btn-secondary">Cancelar</a>
+      <a href="/calendars/create" class="btn btn-success">Salvar em lote</a>
+    </div>
+
+</main>
+
+<script src="/static/script.js"></script>
+
+<%- include('../includes/footer') %>
+

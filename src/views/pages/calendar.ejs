@@ -1,0 +1,68 @@
+<%- include('../includes/head') %>
+
+<%- include('../includes/nav') %>
+
+<main class="container">
+
+    <%if (calendars) { %>
+    <h3>Listagem dos Calendários</h3>
+    <hr>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Proprietário</th>
+            <th scope="col">Padrão</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for (const event of calendars.value) { %>
+            <tr>
+                <th scope="row"><%= event.changeKey %></th>
+                <td><%= event.name %></td>
+                <td><%= event.owner.name %> (<%= event.owner.address %>)</td>
+                <td><%= event.isDefaultCalendar %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <div class="d-grid gap-2 d-md-block">
+      <a href="/calendars/list" class="btn btn-outline-primary">Listar compromissos</a>
+      <a href="/calendars/create" class="btn btn-primary">Criar compromisso</a>
+      <a href="/calendars/create-massive" class="btn btn-secondary">Criar compromisso em lote</a>
+    </div>
+
+    <% } %>
+
+    <% if (events?.value?.length > 0) { %>
+      <h3>Listagem de eventos</h3>
+      <hr>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Data Inicial</th>
+            <th scope="col">Data Final</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const event of events.value) { %>
+            <tr>
+              <td><%= new Date(event.start.dateTime).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo'}) %></td>
+              <td><%= new Date(event.end.dateTime).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo'}) %></td>
+              <td><%= event.subject %></td>
+              <td><%= event.bodyPreview %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } %>
+</main>
+
+<%- include('../includes/footer') %>
+

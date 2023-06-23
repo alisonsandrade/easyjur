@@ -1,0 +1,29 @@
+    <%- include('includes/head') %>
+
+    <%- include('includes/nav') %>
+      
+    <main class="container">
+        <div class="bg-body-tertiary p-5 rounded">
+            <h1>Bem vindo ao EasyJur</h1>
+            <p class="lead">Sistema facilitador das ferramentas integradas Microsoft.</p>
+
+            <% if (isAuthenticated) { %>
+
+            <p>Olá, <%= username %>!</p>
+            <a href="/users/id">View ID token claims</a>
+            <br>
+            <a href="/auth/acquireToken">Acquire a token to call the Microsoft Graph API</a>
+            <br>
+            <a href="/calendars/list">Listagem dos eventos</a>
+            <br>
+            <a href="/auth/signout">Sign out</a>
+
+            <% } else { %>
+
+            <a class="btn btn-lg btn-primary" href="/auth/signin" role="button">Entrar &raquo;</a>
+
+            <% } %>
+        </div>
+    </main>
+
+<%- include('includes/footer') %>
